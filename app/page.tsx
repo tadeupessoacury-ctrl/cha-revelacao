@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="invite-card">
       <Invite />
-      <div className="px-5 pb-5">
+      <div className="px-5 pb-5 cascade-in" style={{ animationDelay: "0.6s" }}>
         {confirmed ? (
           <SuccessScreen name={confirmed} />
         ) : (

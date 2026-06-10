@@ -10,8 +10,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         dancing: ["'Dancing Script'", "cursive"],
-        rye: ["'Rye'", "cursive"],
-        playfair: ["'Playfair Display'", "serif"],
+        nunito:  ["'Nunito'", "sans-serif"],
       },
     },
   },

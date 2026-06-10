@@ -15,59 +15,64 @@ export default function Invite() {
         ))}
       </div>
 
-      {/* Bandeirinhas topo */}
-      <Bandeirinhas />
+      {/* Bandeirinhas */}
+      <div className="cascade-in" style={{ animationDelay: "0s" }}>
+        <Bandeirinhas />
+      </div>
 
       {/* Fogueira */}
-      <div className="flex justify-center mt-1">
+      <div className="flex justify-center mt-1 cascade-in" style={{ animationDelay: "0.1s" }}>
         <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg" className="w-14 fogueira-svg">
           <line x1="20" y1="75" x2="50" y2="58" stroke="#7a3500" strokeWidth="5" strokeLinecap="round" />
           <line x1="80" y1="75" x2="50" y2="58" stroke="#7a3500" strokeWidth="5" strokeLinecap="round" />
           <line x1="10" y1="68" x2="50" y2="58" stroke="#5c2800" strokeWidth="4" strokeLinecap="round" />
           <line x1="90" y1="68" x2="50" y2="58" stroke="#5c2800" strokeWidth="4" strokeLinecap="round" />
           <ellipse cx="50" cy="72" rx="28" ry="6" fill="#ff4500" opacity="0.5" />
-          <g className="flame">
-            <ellipse cx="50" cy="52" rx="16" ry="22" fill="#ff6b00" opacity="0.9" />
-            <ellipse cx="42" cy="50" rx="10" ry="18" fill="#ff9f3f" opacity="0.8" />
-            <ellipse cx="58" cy="52" rx="9"  ry="16" fill="#ffb347" opacity="0.7" />
-            <ellipse cx="50" cy="42" rx="8"  ry="16" fill="#ffe08a" opacity="0.9" />
-            <ellipse cx="50" cy="36" rx="5"  ry="12" fill="#ffffff" opacity="0.6" />
-          </g>
+          {/* Cada chama com sua própria animação */}
+          <ellipse className="flame-a" cx="50" cy="52" rx="16" ry="22" fill="#ff6b00" opacity="0.9" />
+          <ellipse className="flame-b" cx="42" cy="50" rx="10" ry="18" fill="#ff9f3f" opacity="0.8" />
+          <ellipse className="flame-c" cx="58" cy="52" rx="9"  ry="16" fill="#ffb347" opacity="0.7" />
+          <ellipse className="flame-d" cx="50" cy="42" rx="8"  ry="16" fill="#ffe08a" opacity="0.9" />
+          <ellipse className="flame-e" cx="50" cy="36" rx="5"  ry="12" fill="#ffffff" opacity="0.6" />
         </svg>
       </div>
 
       {/* Conteúdo */}
       <div className="px-5 text-center">
-        {/* Badge */}
-        <div className="badge-festa">🌽 Festa Junina 🌽</div>
 
-        {/* Título */}
-        <h1
-          className="font-dancing text-[#ffe08a] text-5xl leading-none mt-1 mb-0.5"
-          style={{ textShadow: "0 0 24px rgba(255,200,80,0.6), 2px 2px 0 #7a3500" }}
-        >
-          Revelação!
-        </h1>
-        <p className="font-dancing text-[#ff9f3f] text-xl" style={{ textShadow: "1px 1px 0 #4a1800" }}>
-          Chá Revelação
-        </p>
+        {/* Badge + Título */}
+        <div className="cascade-in" style={{ animationDelay: "0.2s" }}>
+          <div className="badge-festa">🌽 Festa Junina 🌽</div>
+          <h1
+            className="font-dancing text-[#ffe08a] text-5xl leading-none mt-1 mb-1"
+            style={{ textShadow: "0 0 24px rgba(255,200,80,0.6), 2px 2px 0 #7a3500" }}
+          >
+            Revelação!
+          </h1>
+        </div>
 
         {/* Divisor */}
         <Divider emoji="🎉" />
 
         {/* Pedro ou Clara */}
-        <div className="names-box">
-          <p className="font-rye text-[#c97b00] text-[9px] tracking-[0.2em] uppercase mb-1.5">
+        <div className="names-box cascade-in" style={{ animationDelay: "0.3s" }}>
+          <p className="font-nunito font-bold text-[#c97b00] text-[9px] tracking-[0.2em] uppercase mb-1.5">
             Menino ou Menina?
           </p>
-          <div className="flex items-center justify-center">
-            <span className="font-playfair text-[#87ceeb] text-4xl px-3" style={{ textShadow: "0 0 16px rgba(100,200,255,0.5)" }}>
+          <div className="flex items-center justify-center gap-3">
+            <span
+              className="font-dancing text-[#87ceeb] text-4xl"
+              style={{ textShadow: "0 0 16px rgba(100,200,255,0.5)" }}
+            >
               Pedro
             </span>
-            <span className="font-rye text-[#ffe08a] text-xs px-2.5 border-l border-r border-[#c97b00] h-8 flex items-center">
+            <span className="font-nunito font-bold text-[#c97b00] text-sm">
               ou
             </span>
-            <span className="font-playfair text-[#f9a8d4] text-4xl px-3" style={{ textShadow: "0 0 16px rgba(255,150,200,0.5)" }}>
+            <span
+              className="font-dancing text-[#f9a8d4] text-4xl"
+              style={{ textShadow: "0 0 16px rgba(255,150,200,0.5)" }}
+            >
               Clara
             </span>
           </div>
@@ -76,19 +81,25 @@ export default function Invite() {
         {/* Divisor */}
         <Divider emoji="💛" />
 
-        {/* Info cards — grade 3 quadrados */}
-        <div className="grid grid-cols-3 gap-2">
-          <SquareCard icon="📅" label="DATA"     line1="27 de Jun"   line2="Sábado"        />
-          <SquareCard icon="🕐" label="HORÁRIO"  line1="A partir"    line2="das 15h"        />
-          <SquareCard icon="📍" label="LOCAL"    line1="R. Dr. Mario" line2="Play Cond."    />
+        {/* Info cards */}
+        <div className="cascade-in" style={{ animationDelay: "0.4s" }}>
+          <div className="grid grid-cols-2 gap-2">
+            <SquareCard icon="📅" label="DATA"    line1="27 de Jun"   line2="Sábado"           />
+            <SquareCard icon="🕐" label="HORÁRIO" line1="A partir"    line2="das 15h"           />
+            <div className="col-span-2">
+              <WideCard icon="📍" label="LOCAL" line1="Rua Doutor Mario Viana, 486" line2="Play do Condomínio" />
+            </div>
+          </div>
         </div>
 
         {/* Rodapé */}
-        <p className="font-dancing text-[#ffe08a] text-base mt-3" style={{ textShadow: "0 0 8px rgba(255,200,80,0.4)" }}>
-          Venha celebrar conosco! <span className="inline-block animate-pulse">♥</span>
-        </p>
-        <div className="flex justify-center gap-2 mt-1 mb-1 text-base opacity-70">
-          {["🌽","🎪","🌻","🎪","🌽"].map((e, i) => <span key={i}>{e}</span>)}
+        <div className="cascade-in" style={{ animationDelay: "0.5s" }}>
+          <p className="font-dancing text-[#ffe08a] text-base mt-3" style={{ textShadow: "0 0 8px rgba(255,200,80,0.4)" }}>
+            Venha celebrar conosco! <span className="inline-block animate-pulse">♥</span>
+          </p>
+          <div className="flex justify-center gap-2 mt-1 mb-1 text-base opacity-70">
+            {["🌽","🎪","🌻","🎪","🌽"].map((e, i) => <span key={i}>{e}</span>)}
+          </div>
         </div>
       </div>
 
@@ -100,17 +111,27 @@ export default function Invite() {
 
 function Bandeirinhas() {
   const flags = [
-    { x: 22, c: "#e63946" }, { x: 57,  c: "#ffe08a" }, { x: 92,  c: "#2a9d8f" },
-    { x: 127, c: "#e9c46a" }, { x: 162, c: "#e63946" }, { x: 197, c: "#f4a261" },
-    { x: 232, c: "#ffe08a" }, { x: 267, c: "#2a9d8f" }, { x: 302, c: "#e63946" },
-    { x: 337, c: "#e9c46a" }, { x: 372, c: "#f4a261" },
+    { x: 22,  c: "#e63946", delay: "0s"    },
+    { x: 57,  c: "#ffe08a", delay: "0.18s" },
+    { x: 92,  c: "#2a9d8f", delay: "0.36s" },
+    { x: 127, c: "#e9c46a", delay: "0.54s" },
+    { x: 162, c: "#e63946", delay: "0.72s" },
+    { x: 197, c: "#f4a261", delay: "0.9s"  },
+    { x: 232, c: "#ffe08a", delay: "1.08s" },
+    { x: 267, c: "#2a9d8f", delay: "1.26s" },
+    { x: 302, c: "#e63946", delay: "1.44s" },
+    { x: 337, c: "#e9c46a", delay: "1.62s" },
+    { x: 372, c: "#f4a261", delay: "1.8s"  },
   ];
   return (
     <div className="w-full overflow-hidden h-12">
       <svg viewBox="0 0 420 54" xmlns="http://www.w3.org/2000/svg" className="w-full h-12">
-        <path d="M0,12 Q52,28 105,14 Q157,0 210,14 Q263,28 315,14 Q368,0 420,14" stroke="#c97b00" strokeWidth="1.5" fill="none" />
-        {flags.map(({ x, c }, i) => (
-          <polygon key={i} points={`${x},12 ${x + 16},12 ${x + 8},30`} fill={c} />
+        <path d="M0,12 Q52,28 105,14 Q157,0 210,14 Q263,28 315,14 Q368,0 420,14"
+          stroke="#c97b00" strokeWidth="1.5" fill="none" />
+        {flags.map(({ x, c, delay }, i) => (
+          <g key={i} className="flag-sway" style={{ animationDelay: delay }}>
+            <polygon points={`${x},12 ${x + 16},12 ${x + 8},30`} fill={c} />
+          </g>
         ))}
       </svg>
     </div>
@@ -131,9 +152,22 @@ function SquareCard({ icon, label, line1, line2 }: { icon: string; label: string
   return (
     <div className="flex flex-col items-center justify-center bg-[rgba(255,220,120,0.06)] border border-[rgba(201,123,0,0.35)] rounded-xl p-2 aspect-square text-center">
       <span className="text-xl mb-1">{icon}</span>
-      <p className="font-rye text-[#c97b00] text-[7px] tracking-widest uppercase leading-none mb-1">{label}</p>
+      <p className="font-nunito font-bold text-[#c97b00] text-[8px] tracking-widest uppercase leading-none mb-1">{label}</p>
       <p className="text-[#ffe8b0] font-bold text-[11px] leading-tight">{line1}</p>
       {line2 && <p className="text-[rgba(255,220,140,0.65)] text-[10px] italic leading-tight">{line2}</p>}
+    </div>
+  );
+}
+
+function WideCard({ icon, label, line1, line2 }: { icon: string; label: string; line1: string; line2?: string }) {
+  return (
+    <div className="flex items-center gap-3 bg-[rgba(255,220,120,0.06)] border border-[rgba(201,123,0,0.35)] rounded-xl px-4 py-3">
+      <span className="text-xl flex-shrink-0">{icon}</span>
+      <div>
+        <p className="font-nunito font-bold text-[#c97b00] text-[8px] tracking-widest uppercase leading-none mb-1">{label}</p>
+        <p className="text-[#ffe8b0] font-bold text-[12px] leading-snug">{line1}</p>
+        {line2 && <p className="text-[rgba(255,220,140,0.65)] text-[11px] italic leading-snug">{line2}</p>}
+      </div>
     </div>
   );
 }
