@@ -8,9 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily: {
+        dancing: ["'Dancing Script'", "cursive"],
+        rye: ["'Rye'", "cursive"],
+        playfair: ["'Playfair Display'", "serif"],
       },
     },
   },
