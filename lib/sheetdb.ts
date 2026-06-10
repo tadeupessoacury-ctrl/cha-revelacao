@@ -6,12 +6,14 @@ export async function saveRSVP(name: string): Promise<void> {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      data: {
-        Nome: name,
-        "Data/Hora": new Date().toLocaleString("pt-BR", {
-          timeZone: "America/Sao_Paulo",
-        }),
-      },
+      data: [
+        {
+          "Nome ": name,
+          "Data/Horário": new Date().toLocaleString("pt-BR", {
+            timeZone: "America/Sao_Paulo",
+          }),
+        },
+      ],
     }),
   });
 
