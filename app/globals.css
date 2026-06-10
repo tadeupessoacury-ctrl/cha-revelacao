@@ -39,25 +39,9 @@ body {
 .stars { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
 .star  { position: absolute; background: #ffe08a; border-radius: 50%; }
 
-/* ── Bandeirinhas ── */
-.flag-sway {
-  -webkit-transform-box: fill-box;
-  transform-box: fill-box;
-  -webkit-transform-origin: 50% 0%;
-  transform-origin: 50% 0%;
-  will-change: transform;
-}
-
-/* ── Chamas ── */
+/* ── Fogueira — só o filtro de brilho, animação é SMIL no SVG ── */
 .fogueira-svg {
   filter: drop-shadow(0 0 18px #ff6600) drop-shadow(0 0 36px rgba(255,120,0,0.5));
-}
-.flame-a, .flame-b, .flame-c, .flame-d, .flame-e {
-  -webkit-transform-box: fill-box;
-  transform-box: fill-box;
-  -webkit-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
-  will-change: transform, opacity;
 }
 
 /* ── Badge ── */
@@ -143,69 +127,11 @@ body {
    no WebKit/Safari, causando animações silenciosas.
    ══════════════════════════════════════════════════════════════ */
 
+/* SVG animations (chamas, bandeirinhas) agora são SMIL nativas no Scene.tsx
+   — funcionam em todos os browsers incluindo iOS Safari com Reduce Motion ON */
+
 @-webkit-keyframes twinkle { from { opacity: 0.15; } to { opacity: 0.9; } }
 @keyframes          twinkle { from { opacity: 0.15; } to { opacity: 0.9; } }
-
-@-webkit-keyframes sway {
-  0%, 100% { -webkit-transform: rotate(-5deg) translateY(0px); transform: rotate(-5deg) translateY(0px); }
-  50%      { -webkit-transform: rotate(5deg)  translateY(2px);  transform: rotate(5deg)  translateY(2px); }
-}
-@keyframes sway {
-  0%, 100% { transform: rotate(-5deg) translateY(0px); }
-  50%      { transform: rotate(5deg)  translateY(2px); }
-}
-
-/* Chamas individuais — opacity + leve scale para máxima compatibilidade iOS */
-@-webkit-keyframes flk-a {
-  0%,100% { opacity:.90; -webkit-transform:scaleY(1)    scaleX(1);    transform:scaleY(1)    scaleX(1);    }
-  30%     { opacity:.80; -webkit-transform:scaleY(1.07) scaleX(0.96); transform:scaleY(1.07) scaleX(0.96); }
-  65%     { opacity:.88; -webkit-transform:scaleY(0.94) scaleX(1.04); transform:scaleY(0.94) scaleX(1.04); }
-}
-@keyframes flk-a {
-  0%,100% { opacity:.90; transform:scaleY(1)    scaleX(1);    }
-  30%     { opacity:.80; transform:scaleY(1.07) scaleX(0.96); }
-  65%     { opacity:.88; transform:scaleY(0.94) scaleX(1.04); }
-}
-@-webkit-keyframes flk-b {
-  0%,100% { opacity:.80; -webkit-transform:scaleY(1)    scaleX(1);    transform:scaleY(1)    scaleX(1);    }
-  40%     { opacity:.65; -webkit-transform:scaleY(0.92) scaleX(1.06); transform:scaleY(0.92) scaleX(1.06); }
-  70%     { opacity:.78; -webkit-transform:scaleY(1.05) scaleX(0.95); transform:scaleY(1.05) scaleX(0.95); }
-}
-@keyframes flk-b {
-  0%,100% { opacity:.80; transform:scaleY(1)    scaleX(1);    }
-  40%     { opacity:.65; transform:scaleY(0.92) scaleX(1.06); }
-  70%     { opacity:.78; transform:scaleY(1.05) scaleX(0.95); }
-}
-@-webkit-keyframes flk-c {
-  0%,100% { opacity:.70; -webkit-transform:scaleY(1)    scaleX(1);    transform:scaleY(1)    scaleX(1);    }
-  25%     { opacity:.55; -webkit-transform:scaleY(1.09) scaleX(0.94); transform:scaleY(1.09) scaleX(0.94); }
-  60%     { opacity:.68; -webkit-transform:scaleY(0.96) scaleX(1.05); transform:scaleY(0.96) scaleX(1.05); }
-}
-@keyframes flk-c {
-  0%,100% { opacity:.70; transform:scaleY(1)    scaleX(1);    }
-  25%     { opacity:.55; transform:scaleY(1.09) scaleX(0.94); }
-  60%     { opacity:.68; transform:scaleY(0.96) scaleX(1.05); }
-}
-@-webkit-keyframes flk-d {
-  0%,100% { opacity:.90; -webkit-transform:scaleY(1)    scaleX(1);    transform:scaleY(1)    scaleX(1);    }
-  35%     { opacity:.72; -webkit-transform:scaleY(1.06) scaleX(0.97); transform:scaleY(1.06) scaleX(0.97); }
-  75%     { opacity:.85; -webkit-transform:scaleY(0.93) scaleX(1.03); transform:scaleY(0.93) scaleX(1.03); }
-}
-@keyframes flk-d {
-  0%,100% { opacity:.90; transform:scaleY(1)    scaleX(1);    }
-  35%     { opacity:.72; transform:scaleY(1.06) scaleX(0.97); }
-  75%     { opacity:.85; transform:scaleY(0.93) scaleX(1.03); }
-}
-@-webkit-keyframes flk-e {
-  0%,100% { opacity:.60; -webkit-transform:scaleY(1)    scaleX(1);    transform:scaleY(1)    scaleX(1);    }
-  45%     { opacity:.40; -webkit-transform:scaleY(1.12) scaleX(0.92); transform:scaleY(1.12) scaleX(0.92); }
-  80%     { opacity:.55; -webkit-transform:scaleY(0.90) scaleX(1.08); transform:scaleY(0.90) scaleX(1.08); }
-}
-@keyframes flk-e {
-  0%,100% { opacity:.60; transform:scaleY(1)    scaleX(1);    }
-  45%     { opacity:.40; transform:scaleY(1.12) scaleX(0.92); }
-  80%     { opacity:.55; transform:scaleY(0.90) scaleX(1.08); }
-}
 
 @-webkit-keyframes slideUp {
   from { opacity: 0; -webkit-transform: translateY(18px); transform: translateY(18px); }
@@ -239,53 +165,35 @@ body {
   100% {            transform:scale(1);   }
 }
 
-/* ══════════════════════════════════════════════════════════════
-   DISPARO DAS ANIMAÇÕES — apenas se o usuário não pediu redução
-   ══════════════════════════════════════════════════════════════ */
+/* ── Estrelas (decorativas, respeitam Reduce Motion) ── */
 @media (prefers-reduced-motion: no-preference) {
-
   .star {
     -webkit-animation: twinkle 2s infinite alternate;
     animation: twinkle 2s infinite alternate;
   }
-
-  .flag-sway {
-    -webkit-animation: sway 1.8s ease-in-out infinite;
-    animation: sway 1.8s ease-in-out infinite;
-  }
-
-  .flame-a { -webkit-animation: flk-a 0.55s ease-in-out infinite; animation: flk-a 0.55s ease-in-out infinite; }
-  .flame-b { -webkit-animation: flk-b 0.70s ease-in-out infinite; animation: flk-b 0.70s ease-in-out infinite; }
-  .flame-c { -webkit-animation: flk-c 0.45s ease-in-out infinite; animation: flk-c 0.45s ease-in-out infinite; }
-  .flame-d { -webkit-animation: flk-d 0.62s ease-in-out infinite; animation: flk-d 0.62s ease-in-out infinite; }
-  .flame-e { -webkit-animation: flk-e 0.38s ease-in-out infinite; animation: flk-e 0.38s ease-in-out infinite; }
-
-  .cascade-in {
-    opacity: 0;
-    -webkit-transform: translateY(18px);
-    transform: translateY(18px);
-    -webkit-animation: slideUp 0.5s ease forwards;
-    animation: slideUp 0.5s ease forwards;
-    /* GPU layer individual para cada elemento animado */
-    will-change: opacity, transform;
-  }
-
-  .loading-dot {
-    -webkit-animation: blink 0.8s ease-in-out infinite;
-    animation: blink 0.8s ease-in-out infinite;
-  }
-
-  .success-anim     { -webkit-animation: successIn 0.5s ease forwards; animation: successIn 0.5s ease forwards; }
-  .success-firework { -webkit-animation: pop 0.6s ease forwards;       animation: pop 0.6s ease forwards; }
 }
 
-/* ── prefers-reduced-motion: conteúdo visível imediatamente ── */
+/* ── Cascade-in: sempre ativo (conteúdo principal da página) ── */
+.cascade-in {
+  opacity: 0;
+  -webkit-transform: translateY(18px);
+  transform: translateY(18px);
+  -webkit-animation: slideUp 0.5s ease forwards;
+  animation: slideUp 0.5s ease forwards;
+}
+
+/* Loading, Success (sempre ativos) */
+.loading-dot {
+  -webkit-animation: blink 0.8s ease-in-out infinite;
+  animation: blink 0.8s ease-in-out infinite;
+}
+.success-anim     { -webkit-animation: successIn 0.5s ease forwards; animation: successIn 0.5s ease forwards; }
+.success-firework { -webkit-animation: pop 0.6s ease forwards;       animation: pop 0.6s ease forwards; }
+
+/* Reduce Motion: cascade-in termina instantâneo, conteúdo sempre visível */
 @media (prefers-reduced-motion: reduce) {
   .cascade-in {
-    opacity: 1 !important;
-    -webkit-transform: none !important;
-    transform: none !important;
-    -webkit-animation: none !important;
-    animation: none !important;
+    -webkit-animation-duration: 0.001s !important;
+    animation-duration: 0.001s !important;
   }
 }

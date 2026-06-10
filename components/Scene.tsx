@@ -126,8 +126,15 @@ export default function Scene() {
       <path d="M0,152 Q210,176 420,152"
         stroke="#c97b00" strokeWidth="1.2" fill="none" />
       {FLAGS_MID.map(({x, c, y}, i) => (
-        <g key={i} className="flag-sway" style={{ animationDelay: MID_DELAYS[i] }}>
+        <g key={i}>
           <polygon points={`${x},${y} ${x+14},${y} ${x+7},${y+15}`} fill={c} />
+          <animateTransform
+            attributeName="transform" attributeType="XML" type="rotate"
+            values={`-5 ${x+7} ${y}; 5 ${x+7} ${y}; -5 ${x+7} ${y}`}
+            keyTimes="0;0.5;1" dur="1.8s" begin={MID_DELAYS[i]}
+            repeatCount="indefinite" calcMode="spline"
+            keySplines="0.45 0 0.55 1;0.45 0 0.55 1"
+          />
         </g>
       ))}
 
@@ -209,19 +216,42 @@ export default function Scene() {
         <line x1="10" y1="68" x2="50" y2="58" stroke="#5c2800" strokeWidth="4" strokeLinecap="round" />
         <line x1="90" y1="68" x2="50" y2="58" stroke="#5c2800" strokeWidth="4" strokeLinecap="round" />
         <ellipse cx="50" cy="72" rx="28" ry="6" fill="#ff4500" opacity="0.55" />
-        <ellipse className="flame-a" cx="50" cy="52" rx="16" ry="22" fill="#ff6b00" opacity="0.9" />
-        <ellipse className="flame-b" cx="42" cy="50" rx="10" ry="18" fill="#ff9f3f" opacity="0.8" />
-        <ellipse className="flame-c" cx="58" cy="52" rx="9"  ry="16" fill="#ffb347" opacity="0.7" />
-        <ellipse className="flame-d" cx="50" cy="42" rx="8"  ry="16" fill="#ffe08a" opacity="0.9" />
-        <ellipse className="flame-e" cx="50" cy="36" rx="5"  ry="12" fill="#ffffff" opacity="0.6" />
+        {/* SMIL nativo — funciona no iOS Safari independente de Reduce Motion */}
+        <ellipse cx="50" cy="52" rx="16" ry="22" fill="#ff6b00">
+          <animate attributeName="opacity" values="0.9;0.65;0.85;0.9" dur="0.55s" repeatCount="indefinite" />
+          <animate attributeName="ry" values="22;25;20;22" dur="0.55s" repeatCount="indefinite" />
+        </ellipse>
+        <ellipse cx="42" cy="50" rx="10" ry="18" fill="#ff9f3f">
+          <animate attributeName="opacity" values="0.8;0.5;0.75;0.8" dur="0.70s" repeatCount="indefinite" />
+          <animate attributeName="ry" values="18;20;17;18" dur="0.70s" repeatCount="indefinite" />
+        </ellipse>
+        <ellipse cx="58" cy="52" rx="9" ry="16" fill="#ffb347">
+          <animate attributeName="opacity" values="0.7;0.45;0.68;0.7" dur="0.45s" repeatCount="indefinite" />
+          <animate attributeName="ry" values="16;18;15;16" dur="0.45s" repeatCount="indefinite" />
+        </ellipse>
+        <ellipse cx="50" cy="42" rx="8" ry="16" fill="#ffe08a">
+          <animate attributeName="opacity" values="0.9;0.6;0.85;0.9" dur="0.62s" repeatCount="indefinite" />
+          <animate attributeName="ry" values="16;19;15;16" dur="0.62s" repeatCount="indefinite" />
+        </ellipse>
+        <ellipse cx="50" cy="36" rx="5" ry="12" fill="#ffffff">
+          <animate attributeName="opacity" values="0.6;0.3;0.55;0.6" dur="0.38s" repeatCount="indefinite" />
+          <animate attributeName="ry" values="12;14;11;12" dur="0.38s" repeatCount="indefinite" />
+        </ellipse>
       </g>
 
       {/* ── BANDEIRINHAS TOPO ── */}
       <path d="M0,12 Q52,28 105,14 Q157,0 210,14 Q263,28 315,14 Q368,0 420,14"
         stroke="#c97b00" strokeWidth="1.5" fill="none" />
       {FLAGS_TOP.map(({x, c}, i) => (
-        <g key={i} className="flag-sway" style={{ animationDelay: FLAG_DELAYS[i] }}>
+        <g key={i}>
           <polygon points={`${x},12 ${x+16},12 ${x+8},30`} fill={c} />
+          <animateTransform
+            attributeName="transform" attributeType="XML" type="rotate"
+            values={`-5 ${x+8} 12; 5 ${x+8} 12; -5 ${x+8} 12`}
+            keyTimes="0;0.5;1" dur="1.8s" begin={FLAG_DELAYS[i]}
+            repeatCount="indefinite" calcMode="spline"
+            keySplines="0.45 0 0.55 1;0.45 0 0.55 1"
+          />
         </g>
       ))}
 
