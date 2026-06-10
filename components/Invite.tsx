@@ -12,10 +12,10 @@ export default function Invite() {
       <div className="px-5 text-center">
 
         {/* Badge + Título */}
-        <div className="cascade-in" style={{ animationDelay: "0.2s" }}>
+        <div className="cascade-in" style={{ animationDelay: "0.3s" }}>
           <div className="badge-festa">Festa Junina</div>
           <h1
-            className="font-dancing text-[#ffe08a] text-4xl leading-none mt-3 mb-1"
+            className="font-nunito font-extrabold text-[#ffe08a] text-4xl leading-none mt-3 mb-1"
             style={{ textShadow: "0 0 24px rgba(255,200,80,0.6), 2px 2px 0 #7a3500" }}
           >
             Revelação!
@@ -26,16 +26,16 @@ export default function Invite() {
         <Divider emoji="🎉" />
 
         {/* Pedro ou Clara */}
-        <div className="names-box cascade-in" style={{ animationDelay: "0.3s" }}>
+        <div className="names-box cascade-in" style={{ animationDelay: "0.5s" }}>
           <p className="font-nunito font-bold text-[#c97b00] text-[11px] tracking-[0.2em] uppercase mb-1.5">
             Menino ou Menina?
           </p>
           <div className="flex items-center justify-center gap-3">
-            <span className="font-dancing text-[#87ceeb] text-4xl" style={{ textShadow: "0 0 16px rgba(100,200,255,0.5)" }}>
+            <span className="font-nunito font-extrabold text-[#87ceeb] text-4xl" style={{ textShadow: "0 0 16px rgba(100,200,255,0.5)" }}>
               Pedro
             </span>
             <span className="font-nunito font-bold text-[#c97b00] text-sm">ou</span>
-            <span className="font-dancing text-[#f9a8d4] text-4xl" style={{ textShadow: "0 0 16px rgba(255,150,200,0.5)" }}>
+            <span className="font-nunito font-extrabold text-[#f9a8d4] text-4xl" style={{ textShadow: "0 0 16px rgba(255,150,200,0.5)" }}>
               Clara
             </span>
           </div>
@@ -45,15 +45,15 @@ export default function Invite() {
         <Divider emoji="💛" />
 
         {/* Info cards */}
-        <div className="cascade-in flex flex-col gap-2" style={{ animationDelay: "0.4s" }}>
+        <div className="cascade-in flex flex-col gap-2" style={{ animationDelay: "0.7s" }}>
           <InfoRow icon="📅" label="DATA"    line1="28 de Junho de 2026" line2="Sábado"               />
           <InfoRow icon="🕒" label="HORÁRIO" line1="A partir das 15h"                                 />
           <InfoRow icon="📍" label="LOCAL"   line1="Rua Doutor Mario Viana, 486" line2="Play do Condomínio" />
         </div>
 
         {/* Rodapé */}
-        <div className="cascade-in" style={{ animationDelay: "0.5s" }}>
-          <p className="font-dancing text-[#ffe08a] text-[19px] mt-3 mb-2" style={{ textShadow: "0 0 8px rgba(255,200,80,0.4)" }}>
+        <div className="cascade-in" style={{ animationDelay: "0.9s" }}>
+          <p className="font-nunito font-bold text-[#ffe08a] text-[17px] mt-3 mb-2" style={{ textShadow: "0 0 8px rgba(255,200,80,0.4)" }}>
             Venha celebrar conosco!
           </p>
         </div>

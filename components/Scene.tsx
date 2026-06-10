@@ -66,10 +66,12 @@ export default function Scene() {
       {/* ── CÉU ── */}
       <rect width="420" height="280" fill="url(#sc-sky)" />
 
-      {/* ── LUA ── */}
-      <circle cx="390" cy="40" r="36" fill="url(#sc-glow)" />
+      {/* ── LUA — brilho pulsando ── */}
+      <circle cx="390" cy="40" r="36" fill="url(#sc-glow)">
+        <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"
+          calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" />
+      </circle>
       <circle cx="390" cy="40" r="20" fill="url(#sc-moon)" opacity="0.92" />
-      {/* cratera suave */}
       <circle cx="383" cy="36" r="3.5" fill="#e8c840" opacity="0.25" />
       <circle cx="394" cy="46" r="2.5" fill="#e8c840" opacity="0.2"  />
 
@@ -78,23 +80,43 @@ export default function Scene() {
         <circle key={i} cx={s.cx} cy={s.cy} r={s.r} fill="#ffe8a0" opacity={s.op} />
       ))}
 
-      {/* ── BALÕES ── */}
-      {/* vermelho */}
-      <ellipse cx="55" cy="78" rx="10" ry="13" fill="#e63946" opacity="0.88" />
-      <ellipse cx="50" cy="72" rx="3"  ry="4"  fill="#fff" opacity="0.22" />
-      <line x1="55" y1="91"  x2="52" y2="118" stroke="#c97b00" strokeWidth="0.8" />
-      {/* amarelo */}
-      <ellipse cx="158" cy="58" rx="9"  ry="12" fill="#e9c46a" opacity="0.88" />
-      <ellipse cx="153" cy="52" rx="2.5" ry="3.5" fill="#fff" opacity="0.22" />
-      <line x1="158" y1="70"  x2="155" y2="100" stroke="#c97b00" strokeWidth="0.8" />
-      {/* verde-azulado */}
-      <ellipse cx="278" cy="65" rx="10" ry="13" fill="#2a9d8f" opacity="0.82" />
-      <ellipse cx="273" cy="59" rx="3"  ry="4"  fill="#fff" opacity="0.18" />
-      <line x1="278" y1="78"  x2="275" y2="110" stroke="#c97b00" strokeWidth="0.8" />
-      {/* laranja */}
-      <ellipse cx="345" cy="52" rx="8"  ry="11" fill="#f4a261" opacity="0.85" />
-      <ellipse cx="340" cy="47" rx="2.5" ry="3"  fill="#fff" opacity="0.22" />
-      <line x1="345" y1="63"  x2="343" y2="90"  stroke="#c97b00" strokeWidth="0.8" />
+      {/* ── BALÕES — balançando com SMIL ── */}
+      <g>
+        <ellipse cx="55" cy="78" rx="10" ry="13" fill="#e63946" opacity="0.88" />
+        <ellipse cx="50" cy="72" rx="3"  ry="4"  fill="#fff" opacity="0.22" />
+        <line x1="55" y1="91" x2="52" y2="118" stroke="#c97b00" strokeWidth="0.8" />
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 4 -5; 1 -8; -3 -5; 0 0" keyTimes="0;0.25;0.5;0.75;1"
+          dur="4s" begin="0s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1" />
+      </g>
+      <g>
+        <ellipse cx="158" cy="58" rx="9"  ry="12" fill="#e9c46a" opacity="0.88" />
+        <ellipse cx="153" cy="52" rx="2.5" ry="3.5" fill="#fff" opacity="0.22" />
+        <line x1="158" y1="70" x2="155" y2="100" stroke="#c97b00" strokeWidth="0.8" />
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; -3 -6; 1 -9; 4 -5; 0 0" keyTimes="0;0.25;0.5;0.75;1"
+          dur="5s" begin="0.8s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1" />
+      </g>
+      <g>
+        <ellipse cx="278" cy="65" rx="10" ry="13" fill="#2a9d8f" opacity="0.82" />
+        <ellipse cx="273" cy="59" rx="3"  ry="4"  fill="#fff" opacity="0.18" />
+        <line x1="278" y1="78" x2="275" y2="110" stroke="#c97b00" strokeWidth="0.8" />
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 3 -4; -2 -7; -4 -4; 0 0" keyTimes="0;0.25;0.5;0.75;1"
+          dur="4.5s" begin="1.5s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1" />
+      </g>
+      <g>
+        <ellipse cx="345" cy="52" rx="8"  ry="11" fill="#f4a261" opacity="0.85" />
+        <ellipse cx="340" cy="47" rx="2.5" ry="3"  fill="#fff" opacity="0.22" />
+        <line x1="345" y1="63" x2="343" y2="90" stroke="#c97b00" strokeWidth="0.8" />
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; -4 -5; 2 -8; 3 -4; 0 0" keyTimes="0;0.25;0.5;0.75;1"
+          dur="3.8s" begin="0.4s" repeatCount="indefinite" calcMode="spline"
+          keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1" />
+      </g>
 
       {/* ── IGREJA (silhueta, baixa opacidade) ── */}
       <g fill="#1a0800" opacity="0.22">
