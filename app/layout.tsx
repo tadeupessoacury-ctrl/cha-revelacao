@@ -11,10 +11,10 @@ const nunito = Nunito({
 
 export const metadata: Metadata = {
   title: "Chá Revelação — Pedro ou Clara? 💛",
-  description: "Confirme sua presença no Chá Revelação Festa Junina — 28 de Junho às 15h",
+  description: "Confirme sua presença no Chá Revelação Festa Junina — 27 de Junho às 15h",
   openGraph: {
     title: "Chá Revelação — Pedro ou Clara?",
-    description: "28 de Junho • 15h • Rua Dr. Mario Viana, 486",
+    description: "27 de Junho • 15h • Rua Dr. Mario Viana, 486",
   },
 };
 

@@ -46,7 +46,7 @@ export default function Invite() {
 
         {/* Info cards */}
         <div className="cascade-in flex flex-col gap-2" style={{ animationDelay: "0.7s" }}>
-          <InfoRow icon="📅" label="DATA"    line1="28 de Junho de 2026" line2="Sábado"               />
+          <InfoRow icon="📅" label="DATA"    line1="27 de Junho de 2026" line2="Sábado"               />
           <InfoRow icon="🕒" label="HORÁRIO" line1="A partir das 15h"                                 />
           <InfoRow icon="📍" label="LOCAL"   line1="Rua Doutor Mario Viana, 486" line2="Play do Condomínio" />
         </div>
