@@ -57,8 +57,9 @@ export default function Scene() {
         </linearGradient>
         {/* Fade inferior — dissolve a cena no fundo do card */}
         <linearGradient id="sc-fade" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%"   stopColor="#3d1500" stopOpacity="0" />
-          <stop offset="100%" stopColor="#3d1500" stopOpacity="1" />
+          <stop offset="0%"   stopColor="#3d1500" stopOpacity="0"   />
+          <stop offset="40%"  stopColor="#3d1500" stopOpacity="0.2" />
+          <stop offset="100%" stopColor="#3d1500" stopOpacity="1"   />
         </linearGradient>
       </defs>
 
@@ -144,11 +145,6 @@ export default function Scene() {
         <line x1="84" y1="200" x2="84" y2="244" stroke="#2a0e00" strokeWidth="2.2" />
         {/* Balcão */}
         <rect x="0" y="234" width="115" height="9" fill="#5c2000" />
-        {/* Bandeirinhas da barraca */}
-        <line x1="4" y1="167" x2="110" y2="167" stroke="#c97b00" strokeWidth="0.8" />
-        {FLAGS_L.map(({x, c}, i) => (
-          <polygon key={i} points={`${x},167 ${x+12},167 ${x+6},179`} fill={c} opacity="0.9" />
-        ))}
       </g>
 
       {/* ── BARRACA DIREITA ── */}
@@ -165,11 +161,6 @@ export default function Scene() {
         <line x1="392" y1="200" x2="392" y2="244" stroke="#2a0e00" strokeWidth="2.2" />
         {/* Balcão */}
         <rect x="305" y="234" width="115" height="9" fill="#5c2000" />
-        {/* Bandeirinhas da barraca */}
-        <line x1="310" y1="167" x2="416" y2="167" stroke="#c97b00" strokeWidth="0.8" />
-        {FLAGS_R.map(({x, c}, i) => (
-          <polygon key={i} points={`${x},167 ${x+12},167 ${x+6},179`} fill={c} opacity="0.9" />
-        ))}
       </g>
 
       {/* ── CHÃO ── */}
@@ -235,7 +226,7 @@ export default function Scene() {
       ))}
 
       {/* ── FADE INFERIOR — dissolve a cena no conteúdo abaixo ── */}
-      <rect x="0" y="215" width="420" height="65" fill="url(#sc-fade)" />
+      <rect x="0" y="180" width="420" height="100" fill="url(#sc-fade)" />
     </svg>
   );
 }
