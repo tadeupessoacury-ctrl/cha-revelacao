@@ -6,10 +6,12 @@ const FLAGS_TOP = [
   {x:162,c:"#e63946"},{x:197,c:"#f4a261"},{x:232,c:"#ffe08a"},{x:267,c:"#2a9d8f"},
   {x:302,c:"#e63946"},{x:337,c:"#e9c46a"},{x:372,c:"#f4a261"},
 ];
+// y calculado pela catenária Q(0,152 ; 210,176 ; 420,152): y=152+48t(1-t)
 const FLAGS_MID = [
-  {x:28,c:"#f4a261"},{x:68,c:"#2a9d8f"},{x:108,c:"#e9c46a"},{x:148,c:"#e63946"},
-  {x:188,c:"#ffe08a"},{x:228,c:"#f4a261"},{x:268,c:"#e63946"},{x:308,c:"#2a9d8f"},
-  {x:348,c:"#e9c46a"},{x:388,c:"#ffe08a"},
+  {x:28, c:"#f4a261", y:155},{x:68, c:"#2a9d8f", y:159},{x:108,c:"#e9c46a",y:161},
+  {x:148,c:"#e63946", y:163},{x:188,c:"#ffe08a", y:164},{x:228,c:"#f4a261",y:164},
+  {x:268,c:"#e63946", y:163},{x:308,c:"#2a9d8f", y:161},{x:348,c:"#e9c46a",y:159},
+  {x:388,c:"#ffe08a", y:155},
 ];
 const FLAGS_L = [{x:8,c:"#e63946"},{x:28,c:"#e9c46a"},{x:48,c:"#2a9d8f"},{x:68,c:"#f4a261"},{x:88,c:"#e63946"}];
 const FLAGS_R = [{x:314,c:"#ffe08a"},{x:334,c:"#2a9d8f"},{x:354,c:"#e9c46a"},{x:374,c:"#e63946"},{x:394,c:"#f4a261"}];
@@ -52,6 +54,11 @@ export default function Scene() {
         <linearGradient id="sc-ground" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%"   stopColor="#1a0800" stopOpacity="0.2" />
           <stop offset="100%" stopColor="#1a0800" stopOpacity="0.65" />
+        </linearGradient>
+        {/* Fade inferior — dissolve a cena no fundo do card */}
+        <linearGradient id="sc-fade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stopColor="#3d1500" stopOpacity="0" />
+          <stop offset="100%" stopColor="#3d1500" stopOpacity="1" />
         </linearGradient>
       </defs>
 
@@ -114,12 +121,12 @@ export default function Scene() {
         <circle cx="210" cy="187" r="9" />
       </g>
 
-      {/* ── SEGUNDO CORDÃO DE BANDEIRINHAS ── */}
-      <path d="M0,150 Q52,165 105,150 Q158,135 210,150 Q262,165 315,150 Q368,135 420,150"
+      {/* ── SEGUNDO CORDÃO — catenária Q(0,152 → 210,176 → 420,152) ── */}
+      <path d="M0,152 Q210,176 420,152"
         stroke="#c97b00" strokeWidth="1.2" fill="none" />
-      {FLAGS_MID.map(({x, c}, i) => (
+      {FLAGS_MID.map(({x, c, y}, i) => (
         <g key={i} className="flag-sway" style={{ animationDelay: MID_DELAYS[i] }}>
-          <polygon points={`${x},150 ${x+14},150 ${x+7},165`} fill={c} />
+          <polygon points={`${x},${y} ${x+14},${y} ${x+7},${y+15}`} fill={c} />
         </g>
       ))}
 
@@ -226,6 +233,9 @@ export default function Scene() {
           <polygon points={`${x},12 ${x+16},12 ${x+8},30`} fill={c} />
         </g>
       ))}
+
+      {/* ── FADE INFERIOR — dissolve a cena no conteúdo abaixo ── */}
+      <rect x="0" y="215" width="420" height="65" fill="url(#sc-fade)" />
     </svg>
   );
 }
