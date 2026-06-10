@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        dancing: ["'Dancing Script'", "cursive"],
-        nunito:  ["'Nunito'", "sans-serif"],
+        dancing: ["var(--font-dancing)", "cursive"],
+        nunito:  ["var(--font-nunito)", "sans-serif"],
       },
     },
   },
