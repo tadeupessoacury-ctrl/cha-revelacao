@@ -12,12 +12,9 @@ export default function SuccessScreen({ name }: Props) {
       >
         Confirmado, {name}!
       </h2>
-      <p className="font-dancing text-[#ff9f3f] text-xl mb-4">
-        Nos vemos no arraial! 🌽🔥
+      <p className="font-dancing text-[#ff9f3f] text-xl">
+        Nos vemos no arraial!
       </p>
-      <div className="flex justify-center gap-3 text-2xl animate-bounce">
-        <span>🌽</span><span>🎪</span><span>🌻</span>
-      </div>
     </div>
   );
 }

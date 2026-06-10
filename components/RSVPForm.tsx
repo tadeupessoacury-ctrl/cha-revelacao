@@ -35,7 +35,7 @@ export default function RSVPForm({ onSuccess }: Props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p className="font-nunito font-bold text-[#c97b00] text-[10px] tracking-[0.18em] uppercase text-center mb-3">
+      <p className="font-nunito font-bold text-[#c97b00] text-[12px] tracking-[0.18em] uppercase text-center mb-3">
         Confirme sua presença
       </p>
       <input
@@ -56,7 +56,7 @@ export default function RSVPForm({ onSuccess }: Props) {
             Confirmando...
           </span>
         ) : (
-          "Confirmar presença 🎉"
+          "Confirmar presença"
         )}
       </button>
     </form>
