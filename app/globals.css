@@ -47,7 +47,7 @@ body {
 }
 
 /* ── Fogueira flames — cada camada com timing próprio ── */
-.fogueira-svg { filter: drop-shadow(0 0 16px #ff8800); }
+.fogueira-svg { filter: drop-shadow(0 0 18px #ff6600) drop-shadow(0 0 36px rgba(255,120,0,0.5)); }
 .flame-a, .flame-b, .flame-c, .flame-d, .flame-e {
   transform-box: fill-box;
   transform-origin: 50% 100%;
@@ -140,10 +140,10 @@ body {
   }
 
   /* Bandeirinhas — sway individual */
-  .flag-sway { animation: sway 2.4s ease-in-out infinite; }
+  .flag-sway { animation: sway 1.8s ease-in-out infinite; }
   @keyframes sway {
-    0%, 100% { transform: rotate(-2deg); }
-    50%      { transform: rotate(2deg); }
+    0%, 100% { transform: rotate(-5deg) translateY(0px); }
+    50%      { transform: rotate(5deg)  translateY(2px); }
   }
 
   /* Fogueira — cada camada com speed diferente */

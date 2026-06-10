@@ -22,7 +22,7 @@ export default function Invite() {
 
       {/* Fogueira */}
       <div className="flex justify-center mt-1 cascade-in" style={{ animationDelay: "0.1s" }}>
-        <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg" className="w-14 fogueira-svg">
+        <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg" className="w-28 fogueira-svg">
           <line x1="20" y1="75" x2="50" y2="58" stroke="#7a3500" strokeWidth="5" strokeLinecap="round" />
           <line x1="80" y1="75" x2="50" y2="58" stroke="#7a3500" strokeWidth="5" strokeLinecap="round" />
           <line x1="10" y1="68" x2="50" y2="58" stroke="#5c2800" strokeWidth="4" strokeLinecap="round" />
@@ -43,7 +43,7 @@ export default function Invite() {
         <div className="cascade-in" style={{ animationDelay: "0.2s" }}>
           <div className="badge-festa">Festa Junina</div>
           <h1
-            className="font-dancing text-[#ffe08a] text-5xl leading-none mt-1 mb-1"
+            className="font-dancing text-[#ffe08a] text-4xl leading-none mt-3 mb-1"
             style={{ textShadow: "0 0 24px rgba(255,200,80,0.6), 2px 2px 0 #7a3500" }}
           >
             Revelação!
